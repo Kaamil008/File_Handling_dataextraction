@@ -1,0 +1,16 @@
+Extracting Data from the file and storing only the values below a particular line
+f = open(path)
+r_d =f.readlines()
+data=[]
+target=re.compile(r'Curve title: "l(x)"')
+print_following_lines=False
+for line in r_d:
+    line=line.strip('#').strip(' ').strip('\n').strip('i')
+    if print_following_lines:
+        #print(line)
+        data.append(line)
+    
+    if line=='Curve title: "l(x)"':
+        print_following_lines=True
+        
+#print(data)
